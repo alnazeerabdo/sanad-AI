@@ -1,4 +1,33 @@
+"use client";
+
 import ScrollAnimation from "@/components/scroll-animation";
+import { useCountUp, useProgressBar } from "@/hooks/use-count-up";
+
+function AnimatedStep({ step, title, status, targetProgress }: { step: string; title: string; status: string; targetProgress: number }) {
+  const { width, ref } = useProgressBar(targetProgress, 2200);
+
+  return (
+    <div className="flex items-center gap-4">
+      <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">
+        {step}
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-primary-foreground text-sm font-medium">{title}</span>
+          <span className={`text-xs ${status === 'مكتمل' ? 'text-primary-foreground/80' : status === 'جاري' ? 'text-primary-foreground/60' : 'text-primary-foreground/30'}`}>
+            {status}
+          </span>
+        </div>
+        <div ref={ref} className="h-1.5 bg-primary-foreground/10 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-primary-foreground/50 rounded-full transition-none"
+            style={{ width: `${width}%` }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   return (
@@ -12,7 +41,7 @@ export default function About() {
         </ScrollAnimation>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+          {/* Content - text only, no expertise card */}
           <div className="space-y-6">
             <ScrollAnimation animation="fade-up" delay={100}>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight text-balance">
@@ -37,57 +66,30 @@ export default function About() {
               </p>
             </ScrollAnimation>
 
-            {/* Expertise Card */}
-            <ScrollAnimation animation="scale-up" delay={400}>
-              <div className="bg-primary text-primary-foreground rounded-2xl p-8 mt-8">
-                <h3 className="text-lg font-bold mb-4">مجالات خبرتنا</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="text-2xl font-bold">استشارات</p>
-                    <p className="text-sm opacity-80 mt-1">
-                      تحليل الاحتياجات وبناء الاستراتيجيات
-                    </p>
+            {/* Key points instead of expertise card */}
+            <ScrollAnimation animation="fade-up" delay={400}>
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                {[
+                  { title: "استشارات متخصصة", desc: "تحليل وبناء استراتيجية AI" },
+                  { title: "تنفيذ كامل", desc: "فريق تقني ينفذ الحلول" },
+                  { title: "دعم مستمر", desc: "متابعة بعد التنفيذ" },
+                  { title: "خبرة محلية", desc: "نفهم السوق السعودي" },
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-foreground mt-2 shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">{point.title}</p>
+                      <p className="text-xs text-muted-foreground">{point.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-2xl font-bold">تنفيذ</p>
-                    <p className="text-sm opacity-80 mt-1">تطبيق الحلول بفريق تقني متخصص</p>
-                  </div>
-                </div>
-
-                {/* Wave Pattern */}
-                <div className="mt-6 pt-6 border-t border-primary-foreground/20">
-                  <svg viewBox="0 0 400 50" className="w-full opacity-30" preserveAspectRatio="none">
-                    <path d="M0,25 Q50,0 100,25 T200,25 T300,25 T400,25" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <path d="M0,35 Q50,10 100,35 T200,35 T300,35 T400,35" fill="none" stroke="currentColor" strokeWidth="2" />
-                    <path d="M0,45 Q50,20 100,45 T200,45 T300,45 T400,45" fill="none" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                </div>
-
-                {/* Service Tags */}
-                <div className="flex flex-wrap gap-2 mt-6">
-                  {[
-                    "استشارات ذكاء اصطناعي",
-                    "أتمتة العمليات",
-                    "تحليل البيانات",
-                    "تطوير تطبيقات AI",
-                    "التعلم الآلي",
-                    "معالجة اللغات",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 text-xs rounded-full border border-primary-foreground/30 bg-primary-foreground/10"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                ))}
               </div>
             </ScrollAnimation>
           </div>
 
-          {/* Visual — Identity Colors with 3D effect, vertically centered */}
+          {/* Visual — Process tracker with animated progress, centered */}
           <ScrollAnimation animation="rotate-in" delay={200}>
-            <div className="relative group lg:flex lg:items-center lg:justify-center lg:min-h-full" style={{ perspective: '1200px' }}>
+            <div className="relative group lg:flex lg:items-center lg:justify-center" style={{ perspective: '1200px' }}>
               <div className="bg-primary rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl transition-transform duration-700 group-hover:[transform:rotateY(-3deg)_rotateX(2deg)] w-full" style={{ transformStyle: 'preserve-3d' }}>
                 <div className="p-8 space-y-6">
                   {/* Header */}
@@ -103,33 +105,11 @@ export default function About() {
                     </div>
                   </div>
 
-                  {/* Process Steps */}
-                  {[
-                    { step: "01", title: "تحليل الاحتياجات", status: "مكتمل", progress: 100 },
-                    { step: "02", title: "بناء الاستراتيجية", status: "مكتمل", progress: 100 },
-                    { step: "03", title: "التطوير والتنفيذ", status: "جاري", progress: 65 },
-                    { step: "04", title: "الإطلاق والدعم", status: "قادم", progress: 0 },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">
-                        {item.step}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-primary-foreground text-sm font-medium">{item.title}</span>
-                          <span className={`text-xs ${item.status === 'مكتمل' ? 'text-primary-foreground/80' : item.status === 'جاري' ? 'text-primary-foreground/60' : 'text-primary-foreground/30'}`}>
-                            {item.status}
-                          </span>
-                        </div>
-                        <div className="h-1.5 bg-primary-foreground/10 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-primary-foreground/50 rounded-full transition-all duration-1000"
-                            style={{ width: `${item.progress}%` }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                  {/* Animated Process Steps */}
+                  <AnimatedStep step="01" title="تحليل الاحتياجات" status="مكتمل" targetProgress={100} />
+                  <AnimatedStep step="02" title="بناء الاستراتيجية" status="مكتمل" targetProgress={100} />
+                  <AnimatedStep step="03" title="التطوير والتنفيذ" status="جاري" targetProgress={65} />
+                  <AnimatedStep step="04" title="الإطلاق والدعم" status="قادم" targetProgress={0} />
 
                   {/* Bottom Stats */}
                   <div className="grid grid-cols-3 gap-3 pt-4 border-t border-primary-foreground/10">

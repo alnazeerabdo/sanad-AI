@@ -3,6 +3,27 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import ScrollAnimation from "@/components/scroll-animation";
+import { useCountUp, useProgressBar } from "@/hooks/use-count-up";
+
+function AnimatedStat({ label, value, suffix, targetProgress }: { label: string; value: number; suffix: string; targetProgress: number }) {
+  const { count, ref: countRef } = useCountUp(value, 2000);
+  const { width, ref: progressRef } = useProgressBar(targetProgress, 2200);
+
+  return (
+    <div ref={countRef} className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10 backdrop-blur-sm">
+      <div className="text-xs text-primary-foreground/50 mb-1">{label}</div>
+      <div className="text-xl font-bold text-primary-foreground">
+        {suffix === "%" ? `${count}%` : suffix === "x" ? `${count}x` : `+${count}%`}
+      </div>
+      <div ref={progressRef} className="mt-2 h-1 bg-primary-foreground/10 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-primary-foreground/40 rounded-full transition-none"
+          style={{ width: `${width}%` }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -17,7 +38,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8">
-            {/* Badge */}
             <ScrollAnimation animation="fade-up" delay={100}>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card">
                 <span className="text-sm text-muted-foreground">مرحبًا بك في سند تكنو</span>
@@ -25,7 +45,6 @@ export default function Hero() {
               </div>
             </ScrollAnimation>
 
-            {/* Main Heading */}
             <ScrollAnimation animation="fade-up" delay={200}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight text-balance">
                 نسندك في رحلة
@@ -34,26 +53,13 @@ export default function Hero() {
                 <br />
                 <span className="relative inline-block">
                   لأعمالك
-                  <svg
-                    className="absolute -bottom-3 right-0 w-full"
-                    height="10"
-                    viewBox="0 0 120 10"
-                    fill="none"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M2 8C30 3 90 3 118 8"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      opacity="0.3"
-                    />
+                  <svg className="absolute -bottom-3 right-0 w-full" height="10" viewBox="0 0 120 10" fill="none" preserveAspectRatio="none">
+                    <path d="M2 8C30 3 90 3 118 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.3" />
                   </svg>
                 </span>
               </h1>
             </ScrollAnimation>
 
-            {/* Description */}
             <ScrollAnimation animation="fade-up" delay={300}>
               <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
                 شركة سعودية متخصصة في استشارات الذكاء الاصطناعي. نساعدك تدمج
@@ -62,7 +68,6 @@ export default function Hero() {
               </p>
             </ScrollAnimation>
 
-            {/* CTA Buttons */}
             <ScrollAnimation animation="fade-up" delay={400}>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="rounded-full px-8 gap-2 card-3d" asChild>
@@ -71,18 +76,12 @@ export default function Hero() {
                     <ArrowLeft className="w-4 h-4" />
                   </a>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full px-8 card-3d"
-                  asChild
-                >
+                <Button size="lg" variant="outline" className="rounded-full px-8 card-3d" asChild>
                   <a href="#services">اكتشف خدماتنا</a>
                 </Button>
               </div>
             </ScrollAnimation>
 
-            {/* Trust Indicators */}
             <ScrollAnimation animation="fade-up" delay={500}>
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex items-center gap-2">
@@ -95,11 +94,11 @@ export default function Hero() {
             </ScrollAnimation>
           </div>
 
-          {/* Visual — Identity Colors: monochrome black/white/gray with 3D */}
+          {/* Visual — Dashboard with Animated Counters */}
           <ScrollAnimation animation="rotate-in" delay={300}>
             <div className="relative group" style={{ perspective: '1200px' }}>
               <div className="relative bg-primary rounded-3xl p-6 shadow-2xl border border-foreground/10 overflow-hidden transition-transform duration-700 group-hover:[transform:rotateY(-3deg)_rotateX(2deg)]" style={{ transformStyle: 'preserve-3d' }}>
-                {/* Subtle pattern overlay */}
+                {/* Grid pattern */}
                 <div className="absolute inset-0 opacity-[0.04]">
                   <svg viewBox="0 0 200 200" className="w-full h-full">
                     {[...Array(10)].map((_, i) => (
@@ -111,7 +110,7 @@ export default function Hero() {
                   </svg>
                 </div>
 
-                {/* Dashboard Header */}
+                {/* Header */}
                 <div className="relative z-10 flex items-center justify-between mb-6">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-primary-foreground/30" />
@@ -121,26 +120,15 @@ export default function Hero() {
                   <span className="text-xs text-primary-foreground/40 font-mono">sanad-ai-dashboard</span>
                 </div>
 
-                {/* Dashboard Content */}
+                {/* Animated Stats */}
                 <div className="relative z-10 space-y-4">
-                  {/* Stats Row */}
                   <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { label: "الكفاءة", value: "+40%", w: "70%" },
-                      { label: "الأتمتة", value: "85%", w: "85%" },
-                      { label: "التوفير", value: "3x", w: "60%" },
-                    ].map((s, i) => (
-                      <div key={i} className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10 backdrop-blur-sm">
-                        <div className="text-xs text-primary-foreground/50 mb-1">{s.label}</div>
-                        <div className="text-xl font-bold text-primary-foreground">{s.value}</div>
-                        <div className="mt-2 h-1 bg-primary-foreground/10 rounded-full overflow-hidden">
-                          <div className="h-full bg-primary-foreground/40 rounded-full" style={{ width: s.w }} />
-                        </div>
-                      </div>
-                    ))}
+                    <AnimatedStat label="الكفاءة" value={40} suffix="+" targetProgress={70} />
+                    <AnimatedStat label="الأتمتة" value={85} suffix="%" targetProgress={85} />
+                    <AnimatedStat label="التوفير" value={3} suffix="x" targetProgress={60} />
                   </div>
 
-                  {/* Chart Area */}
+                  {/* Chart */}
                   <div className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10">
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs text-primary-foreground/60">أداء النموذج</span>
@@ -164,7 +152,7 @@ export default function Hero() {
                     </svg>
                   </div>
 
-                  {/* AI Action Cards */}
+                  {/* Action Cards */}
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-primary-foreground/8 rounded-xl p-4 border border-primary-foreground/10">
                       <div className="w-8 h-8 rounded-lg bg-primary-foreground/10 flex items-center justify-center mb-2">
@@ -193,7 +181,6 @@ export default function Hero() {
                 لوحة تحكم AI
               </div>
 
-              {/* Decorative Elements */}
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-muted rounded-2xl -z-10" />
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary rounded-xl -z-10" />
             </div>
