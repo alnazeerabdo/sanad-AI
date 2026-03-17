@@ -5,37 +5,37 @@ const services = [
     icon: Brain,
     title: "استشارات الذكاء الاصطناعي",
     description:
-      "نقدم استشارات متخصصة لفهم احتياجات عملك وتحديد فرص تطبيق الذكاء الاصطناعي.",
+      "نحلل وضع شركتك الحالي ونحدد الفرص اللي يقدر الذكاء الاصطناعي يضيف لها قيمة حقيقية لأعمالك.",
   },
   {
     icon: Cpu,
-    title: "تطوير حلول مخصصة",
+    title: "بناء استراتيجية AI",
     description:
-      "نصمم ونبني حلول ذكاء اصطناعي مخصصة تناسب متطلبات عملك الفريدة.",
-  },
-  {
-    icon: LineChart,
-    title: "تحليل البيانات المتقدم",
-    description:
-      "نساعدك على استخراج رؤى قيمة من بياناتك لاتخاذ قرارات أفضل وأسرع.",
-  },
-  {
-    icon: MessageSquare,
-    title: "معالجة اللغات الطبيعية",
-    description:
-      "نطور أنظمة ذكية للتعامل مع النصوص والمحادثات باللغة العربية والإنجليزية.",
+      "نبني لك خارطة طريق واضحة لدمج الذكاء الاصطناعي، مصممة حسب احتياجات شركتك وميزانيتك.",
   },
   {
     icon: Settings,
-    title: "أتمتة العمليات",
+    title: "تطوير حلول مخصصة",
     description:
-      "نساعدك على أتمتة العمليات الروتينية لزيادة الكفاءة وتقليل التكاليف.",
+      "فريقنا التقني يصمم ويبني حلول ذكاء اصطناعي مخصصة تناسب طبيعة عملك ومتطلباتك.",
   },
   {
     icon: Zap,
-    title: "التكامل والتنفيذ",
+    title: "أتمتة العمليات",
     description:
-      "ندمج حلول الذكاء الاصطناعي بسلاسة مع أنظمتك الحالية ونضمن نجاح التنفيذ.",
+      "نساعدك تأتمت العمليات الروتينية باستخدام الذكاء الاصطناعي عشان توفر وقت وتكاليف.",
+  },
+  {
+    icon: LineChart,
+    title: "تحليل البيانات الذكي",
+    description:
+      "نحول بياناتك لرؤى قيمة تساعدك تاخذ قرارات أفضل وأسرع باستخدام تقنيات AI متقدمة.",
+  },
+  {
+    icon: MessageSquare,
+    title: "التكامل والدعم الفني",
+    description:
+      "ندمج حلول الذكاء الاصطناعي مع أنظمتك الحالية بسلاسة، ونقدم دعم فني مستمر بعد التنفيذ.",
   },
 ];
 
@@ -46,16 +46,16 @@ export default function Services() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
-            <span className="text-sm text-muted-foreground">ماذا نقدم</span>
+            <span className="text-sm text-muted-foreground">خدماتنا</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            نصمم حلولاً ذكية وليس
+            حلول ذكية مبنية على
             <br />
-            مجرد تقنيات
+            خبرة حقيقية
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            خدماتنا التقنية تغطي جميع مراحل التحول الرقمي، من الاستشارات الأولية
-            إلى التنفيذ والدعم المستمر.
+            نغطي كل مراحل رحلتك مع الذكاء الاصطناعي، من أول استشارة لين
+            التطبيق الكامل والدعم المستمر.
           </p>
         </div>
 
@@ -76,10 +76,10 @@ export default function Services() {
                 {service.description}
               </p>
               <a
-                href="#"
+                href="#contact"
                 className="inline-flex items-center gap-2 text-sm font-medium text-foreground mt-4 hover:gap-3 transition-all"
               >
-                اقرأ المزيد
+                تعرف أكثر
                 <svg
                   className="w-4 h-4 rotate-180"
                   fill="none"

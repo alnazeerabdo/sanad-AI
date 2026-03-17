@@ -3,30 +3,30 @@
 const steps = [
   {
     number: "01",
-    title: "الاكتشاف",
+    title: "الاكتشاف والتحليل",
     description:
-      "نبدأ بفهم عميق لأعمالك وتحدياتك وأهدافك لتحديد فرص تطبيق الذكاء الاصطناعي الأنسب لاحتياجاتك.",
+      "نبدأ بجلسة تعارف نفهم فيها طبيعة شغلك، التحديات اللي تواجهك، وأهدافك. نحلل العمليات عندك ونحدد وين يقدر الذكاء الاصطناعي يضيف قيمة حقيقية.",
     rotation: "rotate-[-8deg]",
   },
   {
     number: "02",
-    title: "التصميم",
+    title: "بناء الاستراتيجية",
     description:
-      "نصمم حلولاً مخصصة تعتمد على أفضل تقنيات الذكاء الاصطناعي مع مراعاة قابلية التوسع والاندماج.",
+      "نصمم لك خطة واضحة ومفصلة لدمج الذكاء الاصطناعي في أعمالك، مع تحديد الأولويات والميزانية والجدول الزمني.",
     rotation: "rotate-[4deg]",
   },
   {
     number: "03",
-    title: "البناء",
+    title: "التنفيذ والتطوير",
     description:
-      "يقوم فريقنا المتخصص ببناء وتطوير الحل مع اختبارات مستمرة لضمان الجودة والأداء الأمثل.",
+      "فريقنا التقني يبدأ بتنفيذ الخطة خطوة بخطوة، مع اختبارات مستمرة ومتابعة دقيقة عشان نضمن جودة النتائج.",
     rotation: "rotate-[-4deg]",
   },
   {
     number: "04",
-    title: "الإطلاق",
+    title: "الإطلاق والدعم",
     description:
-      "ننفذ الحل في بيئة عملك مع تدريب شامل لفريقك ودعم مستمر لضمان نجاح التحول.",
+      "نطلق الحل في بيئة عملك مع تدريب شامل لفريقك، وندعمك بعد الإطلاق عشان نتأكد إن كل شي يشتغل تمام.",
     rotation: "rotate-[8deg]",
   },
 ];
@@ -38,16 +38,16 @@ export default function Process() {
         {/* Section Header */}
         <div className="mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
-            <span className="text-sm text-muted-foreground">آلية العمل</span>
+            <span className="text-sm text-muted-foreground">كيف نشتغل</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance max-w-xl">
-            دعنا نريك كيف نأخذ
+            رحلتك معنا واضحة
             <br />
-            أعمالك إلى آفاق جديدة
+            من البداية للنهاية
           </h2>
           <p className="text-muted-foreground max-w-lg">
-            منهجيتنا المثبتة تضمن تحقيق نتائج ملموسة في كل مرحلة من مراحل
-            المشروع.
+            نمشي معك في كل خطوة، من فهم احتياجاتك لين ما نشوف النتائج
+            الحقيقية في أعمالك.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export default function Process() {
           {/* Bottom Text */}
           <div className="text-center mt-16">
             <p className="text-xl font-semibold text-foreground">
-              جاهز للتسليم!
+              مستعدين ننطلق معك! 🚀
             </p>
             <svg
               className="w-32 h-8 mx-auto mt-2 text-muted-foreground"

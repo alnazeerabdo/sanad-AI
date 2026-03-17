@@ -1,0 +1,4 @@
+:HL["/sanad-AI/_next/static/chunks/c45e46e791ecfd17.css","style"]
+:HL["/sanad-AI/_next/static/chunks/c5ef08a1895d38ea.css","style"]
+:HL["/sanad-AI/_next/static/media/3fd1b3eda9c5392f-s.p.2ae7fa5d.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"gOkctrMaGpmofndV0DsEx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

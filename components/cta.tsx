@@ -25,18 +25,19 @@ export default function CTA() {
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-background mb-6">
-              <span className="text-sm text-muted-foreground">انضم إلينا</span>
+              <span className="text-sm text-muted-foreground">خلنا نتكلم</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-              هل تريد أن تكون جزءاً من
+              جاهز تدمج الذكاء الاصطناعي
               <br />
-              ثورة الذكاء الاصطناعي؟
+              في أعمالك؟
             </h2>
 
             <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-              نحن في ذكاء نساعد الشركات الرائدة على تحقيق التحول الرقمي. دعنا
-              نساعدك على استكشاف إمكانيات الذكاء الاصطناعي لأعمالك.
+              احجز استشارة مجانية مع فريقنا. نسمع منك عن تحدياتك
+              وأهدافك، ونعطيك تصور واضح كيف الذكاء الاصطناعي يقدر
+              يساعدك تنمو وتتطور.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -49,7 +50,7 @@ export default function CTA() {
                 variant="outline"
                 className="rounded-full px-8"
               >
-                تواصل معنا
+                تواصل معنا عبر واتساب
               </Button>
             </div>
           </div>

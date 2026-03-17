@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navLinks = [
   { name: "الرئيسية", href: "#" },
   { name: "من نحن", href: "#about" },
   { name: "خدماتنا", href: "#services" },
-  { name: "آلية العمل", href: "#process" },
+  { name: "مشاريعنا", href: "#projects" },
+  { name: "لماذا نحن", href: "#why-us" },
   { name: "تواصل معنا", href: "#contact" },
 ];
 
@@ -21,20 +23,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="w-6 h-6 text-primary-foreground"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-foreground">ذكاء</span>
+            <Image
+              src="/logo-01.png"
+              alt="سند تكنو"
+              width={140}
+              height={40}
+              className="h-9 w-auto"
+              priority
+            />
           </div>
 
           {/* Desktop Nav */}
@@ -52,21 +48,23 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="rounded-full px-6">
-              ابدأ الآن
-              <svg
-                className="w-4 h-4 mr-2 rotate-180"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+            <Button className="rounded-full px-6" asChild>
+              <a href="#contact">
+                احجز استشارة
+                <svg
+                  className="w-4 h-4 mr-2 rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
             </Button>
           </div>
 
@@ -98,7 +96,9 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full rounded-full mt-4">ابدأ الآن</Button>
+            <Button className="w-full rounded-full mt-4" asChild>
+              <a href="#contact">احجز استشارة</a>
+            </Button>
           </div>
         </div>
       )}

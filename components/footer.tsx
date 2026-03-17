@@ -1,41 +1,35 @@
+import Image from "next/image";
+
 const footerLinks = {
-  الشركة: ["من نحن", "فريق العمل", "الوظائف", "الأخبار"],
+  الشركة: ["من نحن", "خدماتنا", "مشاريعنا", "لماذا نحن"],
   الخدمات: [
-    "استشارات الذكاء الاصطناعي",
-    "تحليل البيانات",
-    "معالجة اللغات",
-    "الأتمتة",
+    "استشارات ذكاء اصطناعي",
+    "بناء استراتيجية AI",
+    "تطوير حلول مخصصة",
+    "أتمتة العمليات",
   ],
-  الموارد: ["المدونة", "دراسات الحالة", "الأبحاث", "الفعاليات"],
-  التواصل: ["info@thaka.ai", "+966 11 000 0000", "الرياض، السعودية"],
+  التواصل: ["info@sanadtech.ai", "السعودية"],
 };
 
 export default function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="w-6 h-6 text-primary-foreground"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                  <path d="M2 17l10 5 10-5" />
-                  <path d="M2 12l10 5 10-5" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold text-foreground">ذكاء</span>
+              <Image
+                src="/logo-01.png"
+                alt="سند تكنو"
+                width={120}
+                height={35}
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">
-              شريكك الموثوق في رحلة التحول الرقمي. نساعد الشركات على الاستفادة
-              من قوة الذكاء الاصطناعي لتحقيق النمو والابتكار.
+              شركة سعودية متخصصة في استشارات الذكاء الاصطناعي.
+              نساعدك تدمج AI في أعمالك من الاستشارة للتنفيذ الكامل.
             </p>
 
             {/* Social Links */}
@@ -68,7 +62,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          {Object.entries(footerLinks).slice(0, 3).map(([title, links]) => (
+          {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="font-semibold text-foreground mb-4">{title}</h3>
               <ul className="space-y-3">
@@ -90,7 +84,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2026 ذكاء. جميع الحقوق محفوظة.
+            © 2026 سند تكنو. جميع الحقوق محفوظة.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">
