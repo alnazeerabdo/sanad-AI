@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import ScrollAnimation from "@/components/scroll-animation";
 
 const basePath = "/sanad-AI";
@@ -17,47 +16,6 @@ const technologies = [
 ];
 
 export default function Partners() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let animationId: number;
-    let scrollPos = 0;
-    const speed = 0.5;
-
-    const animate = () => {
-      scrollPos += speed;
-      if (scrollContainer.scrollWidth > 0) {
-        // Reset when we've scrolled half (since we duplicate items)
-        if (scrollPos >= scrollContainer.scrollWidth / 2) {
-          scrollPos = 0;
-        }
-      }
-      scrollContainer.scrollLeft = scrollPos;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    // Pause on hover
-    const handleMouseEnter = () => cancelAnimationFrame(animationId);
-    const handleMouseLeave = () => { animationId = requestAnimationFrame(animate); };
-
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
-      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
-  // Duplicate items for seamless infinite scroll
-  const allItems = [...technologies, ...technologies];
-
   return (
     <section className="py-12 border-y border-border bg-card overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,23 +25,36 @@ export default function Partners() {
           </p>
         </ScrollAnimation>
 
-        <div
-          ref={scrollRef}
-          className="flex items-center gap-12 overflow-hidden"
-          style={{ scrollBehavior: "auto" }}
-        >
-          {allItems.map((tech, index) => (
-            <div
-              key={`${tech.name}-${index}`}
-              className="flex-shrink-0 flex items-center justify-center px-4 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
-            >
-              <img
-                src={tech.logo}
-                alt={tech.name}
-                className="h-10 md:h-12 w-auto max-w-[120px] object-contain"
-              />
-            </div>
-          ))}
+        {/* CSS-based infinite scroll carousel */}
+        <div className="relative overflow-hidden" dir="ltr">
+          <div className="flex items-center gap-16 animate-scroll-x hover:[animation-play-state:paused]">
+            {/* First set */}
+            {technologies.map((tech, index) => (
+              <div
+                key={`a-${index}`}
+                className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              >
+                <img
+                  src={tech.logo}
+                  alt={tech.name}
+                  className="h-10 md:h-12 w-auto max-w-[120px] object-contain"
+                />
+              </div>
+            ))}
+            {/* Duplicated set for seamless loop */}
+            {technologies.map((tech, index) => (
+              <div
+                key={`b-${index}`}
+                className="flex-shrink-0 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+              >
+                <img
+                  src={tech.logo}
+                  alt={tech.name}
+                  className="h-10 md:h-12 w-auto max-w-[120px] object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
