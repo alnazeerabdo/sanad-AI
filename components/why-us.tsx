@@ -1,4 +1,5 @@
 import { Shield, Users, Target, Headphones, Award, Lightbulb } from "lucide-react";
+import ScrollAnimation from "@/components/scroll-animation";
 
 const reasons = [
   {
@@ -45,42 +46,47 @@ export default function WhyUs() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
-            <span className="text-sm text-muted-foreground">مميزاتنا</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            ليش سند تكنو هو
-            <br />
-            اختيارك الصحيح؟
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            نقدم لك كل اللي تحتاجه عشان تدخل عالم الذكاء الاصطناعي
-            بثقة ونتائج ملموسة.
-          </p>
+          <ScrollAnimation animation="fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
+              <span className="text-sm text-muted-foreground">مميزاتنا</span>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={100}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
+              ليش سند تكنو هو
+              <br />
+              اختيارك الصحيح؟
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={200}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              نقدم لك كل اللي تحتاجه عشان تدخل عالم الذكاء الاصطناعي
+              بثقة ونتائج ملموسة.
+            </p>
+          </ScrollAnimation>
         </div>
 
         {/* Reasons Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
-            <div
-              key={index}
-              className="group bg-card rounded-2xl border border-border p-6 hover:shadow-lg hover:border-foreground/20 transition-all duration-300 relative overflow-hidden"
-            >
-              {/* Hover gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+              <div className="group bg-card rounded-2xl border border-border p-6 hover:shadow-lg hover:border-foreground/20 transition-all duration-300 relative overflow-hidden card-3d h-full">
+                {/* Hover gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="relative z-10">
-                <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <reason.icon className="w-6 h-6" />
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <reason.icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {reason.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {reason.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {reason.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {reason.description}
-                </p>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

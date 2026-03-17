@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 
 const navLinks = [
   { name: "الرئيسية", href: "#" },
@@ -23,13 +22,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Image
+            <img
               src="/logo-01.png"
               alt="سند تكنو"
-              width={140}
-              height={40}
               className="h-9 w-auto"
-              priority
             />
           </div>
 

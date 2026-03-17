@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import ScrollAnimation from "@/components/scroll-animation";
 
 const faqs = [
   {
@@ -32,7 +33,7 @@ const faqs = [
   {
     question: "كيف أبدأ معكم؟",
     answer:
-      "بسيطة! احجز استشارة مجانية من خلال الموقع أو تواصل معنا على واتساب. نسمع منك عن مشروعك ونعطيك تصور أولي مجانًا.",
+      "تواصل معنا من خلال الموقع أو على واتساب وأحجز استشارتك الأولى. نسمع منك عن مشروعك ونعطيك تصور أولي عن الإمكانيات.",
   },
 ];
 
@@ -44,49 +45,54 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
-            <span className="text-sm text-muted-foreground">أسئلة شائعة</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            عندك سؤال؟
-          </h2>
-          <p className="text-muted-foreground">
-            جمعنا لك أكثر الأسئلة اللي يسألونها عملاؤنا
-          </p>
+          <ScrollAnimation animation="fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
+              <span className="text-sm text-muted-foreground">أسئلة شائعة</span>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={100}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
+              عندك سؤال؟
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={200}>
+            <p className="text-muted-foreground">
+              جمعنا لك أكثر الأسئلة اللي يسألونها عملاؤنا
+            </p>
+          </ScrollAnimation>
         </div>
 
         {/* FAQ Items */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:border-foreground/20"
-            >
-              <button
-                className="w-full px-6 py-5 flex items-center justify-between text-right"
-                onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
-                }
-              >
-                <span className="font-medium text-foreground">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-muted-foreground shrink-0 mr-4 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
+            <ScrollAnimation key={index} animation="fade-up" delay={index * 80}>
+              <div className="bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:border-foreground/20 card-3d">
+                <button
+                  className="w-full px-6 py-5 flex items-center justify-between text-right"
+                  onClick={() =>
+                    setOpenIndex(openIndex === index ? null : index)
+                  }
+                >
+                  <span className="font-medium text-foreground">
+                    {faq.question}
+                  </span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-muted-foreground shrink-0 mr-4 transition-transform duration-300 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openIndex === index ? "max-h-96 pb-5" : "max-h-0"
                   }`}
-                />
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-96 pb-5" : "max-h-0"
-                }`}
-              >
-                <p className="px-6 text-sm text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </p>
+                >
+                  <p className="px-6 text-sm text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

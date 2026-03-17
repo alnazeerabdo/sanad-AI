@@ -1,3 +1,3 @@
-:HL["/sanad-AI/_next/static/chunks/c45e46e791ecfd17.css","style"]
-:HL["/sanad-AI/_next/static/chunks/c5ef08a1895d38ea.css","style"]
-0:{"buildId":"gOkctrMaGpmofndV0DsEx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+:HL["/sanad-AI/_next/static/chunks/e297425f70ca5594.css","style"]
+:HL["/sanad-AI/_next/static/chunks/7841c0e666b51ce6.css","style"]
+0:{"buildId":"PN6dd9Dnwn-sMpHQNlkYU","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"/_not-found","paramType":null,"paramKey":"/_not-found","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

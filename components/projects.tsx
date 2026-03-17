@@ -1,4 +1,5 @@
 import { Cpu, LineChart, Bot, Cog, Brain, Zap } from "lucide-react";
+import ScrollAnimation from "@/components/scroll-animation";
 
 const projects = [
   {
@@ -63,57 +64,62 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
-            <span className="text-sm text-muted-foreground">أعمالنا</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            مشاريع نفتخر فيها
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            نماذج من الحلول اللي قدمناها لعملائنا. كل مشروع
-            صُمم حسب احتياجات العميل الفعلية.
-          </p>
+          <ScrollAnimation animation="fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
+              <span className="text-sm text-muted-foreground">أعمالنا</span>
+            </div>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={100}>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
+              مشاريع نفتخر فيها
+            </h2>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={200}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              نماذج من الحلول اللي قدمناها لعملائنا. كل مشروع
+              صُمم حسب احتياجات العميل الفعلية.
+            </p>
+          </ScrollAnimation>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-foreground/20 transition-all duration-300"
-            >
-              {/* Project Header */}
-              <div className={`p-6 bg-gradient-to-br ${project.gradient}`}>
-                <div className="w-12 h-12 bg-card rounded-xl flex items-center justify-center shadow-md mb-4">
-                  <project.icon className="w-6 h-6 text-foreground" />
+            <ScrollAnimation key={index} animation="fade-up" delay={index * 100}>
+              <div className="group bg-card rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-foreground/20 transition-all duration-300 card-3d h-full">
+                {/* Project Header */}
+                <div className={`p-6 bg-gradient-to-br ${project.gradient}`}>
+                  <div className="w-12 h-12 bg-card rounded-xl flex items-center justify-center shadow-md mb-4">
+                    <project.icon className="w-6 h-6 text-foreground" />
+                  </div>
+                  <span className="text-xs text-muted-foreground font-medium bg-card/80 px-3 py-1 rounded-full">
+                    {project.category}
+                  </span>
                 </div>
-                <span className="text-xs text-muted-foreground font-medium bg-card/80 px-3 py-1 rounded-full">
-                  {project.category}
-                </span>
-              </div>
 
-              {/* Project Content */}
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {project.description}
-                </p>
+                {/* Project Content */}
+                <div className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {project.description}
+                  </p>
 
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2 py-1 bg-muted rounded-md text-muted-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                  {/* Tech Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs px-2 py-1 bg-muted rounded-md text-muted-foreground"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>
