@@ -13,6 +13,9 @@ const navLinks = [
   { name: "تواصل معنا", href: "#contact" },
 ];
 
+// Use basePath from next.config.mjs for asset paths
+const basePath = "/sanad-AI";
+
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,7 +26,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <img
-              src="/logo-01.png"
+              src={`${basePath}/logo-01.png`}
               alt="سند تكنو"
               className="h-9 w-auto"
             />

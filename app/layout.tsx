@@ -13,10 +13,6 @@ export const metadata: Metadata = {
   title: 'سند تكنو | استشارات الذكاء الاصطناعي',
   description: 'شركة سند تكنولوجي - شريكك في دمج الذكاء الاصطناعي داخل أعمالك. استشارات وتطبيقات ذكاء اصطناعي متخصصة في السعودية.',
   generator: 'v0.app',
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
 }
 
 export default function RootLayout({
@@ -26,6 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
+      <head>
+        <link rel="icon" href="/sanad-AI/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/sanad-AI/favicon.png" />
+      </head>
       <body className={`${ibmPlexArabic.variable} font-arabic antialiased`}>
         {children}
         <Analytics />
