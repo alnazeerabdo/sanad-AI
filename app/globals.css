@@ -250,3 +250,89 @@
   animation: scroll-x 25s linear infinite;
   width: max-content;
 }
+
+/* ========================================
+   Glass Morphism Utility
+   ======================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   Mesh / Grid Background Pattern
+   ======================================== */
+
+.bg-mesh-pattern {
+  background-image:
+    linear-gradient(currentColor 0.5px, transparent 0.5px),
+    linear-gradient(90deg, currentColor 0.5px, transparent 0.5px);
+  background-size: 48px 48px;
+}
+
+/* ========================================
+   Gradient Text
+   ======================================== */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--foreground) 0%,
+    oklch(0.5 0 0) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Hero Background Animated Gradient
+   ======================================== */
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ========================================
+   Page Transition
+   ======================================== */
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page-enter {
+  animation: page-enter 0.4s ease-out;
+}
+
+/* ========================================
+   Custom Scrollbar
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}

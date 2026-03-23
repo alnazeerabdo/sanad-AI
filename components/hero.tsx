@@ -1,21 +1,39 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Sparkles, Brain, Zap, Shield } from "lucide-react";
 import ScrollAnimation from "@/components/scroll-animation";
 import { useCountUp, useProgressBar } from "@/hooks/use-count-up";
 
-function AnimatedStat({ label, value, suffix, targetProgress }: { label: string; value: number; suffix: string; targetProgress: number }) {
+const basePath = "/sanad-AI";
+
+function AnimatedStat({
+  label,
+  value,
+  suffix,
+  targetProgress,
+}: {
+  label: string;
+  value: number;
+  suffix: string;
+  targetProgress: number;
+}) {
   const { count, ref: countRef } = useCountUp(value, 2000);
   const { width, ref: progressRef } = useProgressBar(targetProgress, 2200);
 
   return (
-    <div ref={countRef} className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10 backdrop-blur-sm">
+    <div
+      ref={countRef}
+      className="bg-primary-foreground/5 rounded-xl p-4 border border-primary-foreground/10 backdrop-blur-sm"
+    >
       <div className="text-xs text-primary-foreground/50 mb-1">{label}</div>
       <div className="text-xl font-bold text-primary-foreground">
         {suffix === "%" ? `${count}%` : suffix === "x" ? `${count}x` : `+${count}%`}
       </div>
-      <div ref={progressRef} className="mt-2 h-1 bg-primary-foreground/10 rounded-full overflow-hidden">
+      <div
+        ref={progressRef}
+        className="mt-2 h-1 bg-primary-foreground/10 rounded-full overflow-hidden"
+      >
         <div
           className="h-full bg-primary-foreground/40 rounded-full transition-none"
           style={{ width: `${width}%` }}
@@ -27,36 +45,69 @@ function AnimatedStat({ label, value, suffix, targetProgress }: { label: string;
 
 export default function Hero() {
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
-      {/* Animated Background Gradient */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-primary/5 to-transparent blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+    <section className="relative min-h-screen flex items-center pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Animated mesh background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-mesh-pattern opacity-[0.025]" />
+        <div className="absolute -top-60 -right-60 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-primary/8 via-primary/4 to-transparent blur-3xl animate-pulse" />
+        <div
+          className="absolute -bottom-60 -left-60 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-primary/6 to-transparent blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-gradient-radial from-primary/3 to-transparent blur-2xl animate-pulse"
+          style={{ animationDelay: "4s" }}
+        />
+        {/* Subtle grid lines */}
+        <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="hero-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="currentColor" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-grid)" />
+        </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-8">
             <ScrollAnimation animation="fade-up" delay={100}>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/80 bg-card/80 backdrop-blur-sm shadow-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                </span>
                 <span className="text-sm text-muted-foreground">مرحبًا بك في سند تكنو</span>
-                <Sparkles className="w-4 h-4 text-foreground" />
+                <Sparkles className="w-4 h-4 text-foreground/60" />
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fade-up" delay={200}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight text-balance">
-                نسندك في رحلة
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-foreground leading-[1.1] tracking-tight">
+                نسندك في{" "}
+                <span className="relative inline-block">
+                  رحلة
+                  <svg
+                    className="absolute -bottom-2 right-0 w-full text-foreground/20"
+                    height="8"
+                    viewBox="0 0 120 8"
+                    fill="none"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M2 6C30 2 90 2 118 6"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </span>
                 <br />
                 الذكاء الاصطناعي
                 <br />
-                <span className="relative inline-block">
-                  لأعمالك
-                  <svg className="absolute -bottom-3 right-0 w-full" height="10" viewBox="0 0 120 10" fill="none" preserveAspectRatio="none">
-                    <path d="M2 8C30 3 90 3 118 8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.3" />
-                  </svg>
-                </span>
+                <span className="text-foreground/40">لأعمالك</span>
               </h1>
             </ScrollAnimation>
 
@@ -70,34 +121,43 @@ export default function Hero() {
 
             <ScrollAnimation animation="fade-up" delay={400}>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="rounded-full px-8 gap-2 card-3d" asChild>
-                  <a href="#contact">
+                <Button size="lg" className="rounded-full px-8 gap-2 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow" asChild>
+                  <a href={`${basePath}/contact`}>
                     احجز استشارتك الآن
                     <ArrowLeft className="w-4 h-4" />
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="rounded-full px-8 card-3d" asChild>
-                  <a href="#services">اكتشف خدماتنا</a>
+                <Button size="lg" variant="outline" className="rounded-full px-8 bg-background/60 backdrop-blur-sm" asChild>
+                  <a href={`${basePath}/services`}>اكتشف خدماتنا</a>
                 </Button>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fade-up" delay={500}>
-              <div className="flex items-center gap-6 pt-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm text-muted-foreground">شركة مسجلة في السعودية</span>
-                </div>
-                <div className="h-4 w-px bg-border" />
-                <span className="text-sm text-muted-foreground">متخصصين في الذكاء الاصطناعي</span>
+              <div className="flex flex-wrap items-center gap-6 pt-2">
+                {[
+                  { icon: Shield, label: "شركة مسجلة في السعودية" },
+                  { icon: Brain, label: "متخصصين في الذكاء الاصطناعي" },
+                  { icon: Zap, label: "نتائج حقيقية وقابلة للقياس" },
+                ].map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-muted flex items-center justify-center">
+                      <Icon className="w-3.5 h-3.5 text-muted-foreground" />
+                    </div>
+                    <span className="text-sm text-muted-foreground">{label}</span>
+                  </div>
+                ))}
               </div>
             </ScrollAnimation>
           </div>
 
-          {/* Visual — Dashboard with Animated Counters */}
+          {/* Visual Dashboard */}
           <ScrollAnimation animation="rotate-in" delay={300}>
-            <div className="relative group" style={{ perspective: '1200px' }}>
-              <div className="relative bg-primary rounded-3xl p-6 shadow-2xl border border-foreground/10 overflow-hidden transition-transform duration-700 group-hover:[transform:rotateY(-3deg)_rotateX(2deg)]" style={{ transformStyle: 'preserve-3d' }}>
+            <div className="relative group" style={{ perspective: "1200px" }}>
+              <div
+                className="relative bg-primary rounded-3xl p-6 shadow-2xl border border-foreground/10 overflow-hidden transition-transform duration-700 group-hover:[transform:rotateY(-3deg)_rotateX(2deg)]"
+                style={{ transformStyle: "preserve-3d" }}
+              >
                 {/* Grid pattern */}
                 <div className="absolute inset-0 opacity-[0.04]">
                   <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -117,7 +177,9 @@ export default function Hero() {
                     <div className="w-3 h-3 rounded-full bg-primary-foreground/20" />
                     <div className="w-3 h-3 rounded-full bg-primary-foreground/10" />
                   </div>
-                  <span className="text-xs text-primary-foreground/40 font-mono">sanad-ai-dashboard</span>
+                  <span className="text-xs text-primary-foreground/40 font-mono">
+                    sanad-ai-dashboard
+                  </span>
                 </div>
 
                 {/* Animated Stats */}
@@ -133,7 +195,7 @@ export default function Hero() {
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-xs text-primary-foreground/60">أداء النموذج</span>
                       <span className="text-xs text-primary-foreground/40 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary-foreground/60 inline-block" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block animate-pulse" />
                         مباشر
                       </span>
                     </div>
@@ -144,9 +206,17 @@ export default function Hero() {
                           <stop offset="100%" stopColor="rgba(255,255,255,0)" />
                         </linearGradient>
                       </defs>
-                      <path d="M0,60 Q30,55 60,45 T120,35 T180,25 T240,30 T300,15" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
-                      <path d="M0,60 Q30,55 60,45 T120,35 T180,25 T240,30 T300,15 L300,80 L0,80 Z" fill="url(#chartGradMono)" />
-                      {[[60,45],[120,35],[180,25],[240,30],[300,15]].map(([cx,cy], i) => (
+                      <path
+                        d="M0,60 Q30,55 60,45 T120,35 T180,25 T240,30 T300,15"
+                        fill="none"
+                        stroke="rgba(255,255,255,0.5)"
+                        strokeWidth="2"
+                      />
+                      <path
+                        d="M0,60 Q30,55 60,45 T120,35 T180,25 T240,30 T300,15 L300,80 L0,80 Z"
+                        fill="url(#chartGradMono)"
+                      />
+                      {[[60, 45],[120, 35],[180, 25],[240, 30],[300, 15]].map(([cx, cy], i) => (
                         <circle key={i} cx={cx} cy={cy} r="3" fill="rgba(255,255,255,0.7)" />
                       ))}
                     </svg>
@@ -177,7 +247,7 @@ export default function Hero() {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-card text-foreground border border-border px-6 py-2 rounded-full text-sm font-medium shadow-lg">
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-card text-foreground border border-border px-6 py-2 rounded-full text-sm font-medium shadow-lg whitespace-nowrap">
                 لوحة تحكم AI
               </div>
 
