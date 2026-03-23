@@ -1,41 +1,71 @@
-"use client";
-
-import { useState } from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Mail, MapPin, MessageCircle, Send, ArrowLeft } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Clock, ArrowLeft, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollAnimation from "@/components/scroll-animation";
 
 const basePath = "/sanad-AI";
 
+const contactMethods = [
+  {
+    icon: MessageCircle,
+    title: "واتساب",
+    description: "أسرع طريقة للتواصل معنا. نرد خلال ساعات.",
+    action: "ابدأ محادثة",
+    href: "https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88.",
+    primary: true,
+  },
+  {
+    icon: Mail,
+    title: "البريد الإلكتروني",
+    description: "للاستفسارات الرسمية والمقترحات التفصيلية.",
+    action: "راسلنا",
+    href: "mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88",
+    primary: false,
+  },
+  {
+    icon: MapPin,
+    title: "الموقع",
+    description: "المملكة العربية السعودية — نخدم عملاء في جميع أنحاء المملكة.",
+    action: null,
+    href: null,
+    primary: false,
+  },
+  {
+    icon: Clock,
+    title: "أوقات العمل",
+    description: "الأحد – الخميس: 9 صباحًا – 6 مساءً\nالجمعة – السبت: عبر واتساب فقط",
+    action: null,
+    href: null,
+    primary: false,
+  },
+];
+
+const faqs = [
+  {
+    q: "كم تستغرق الاستشارة الأولى؟",
+    a: "حوالي 45–60 دقيقة نتعرف فيها على عملك وتحدياتك ونقيّم الفرص المتاحة لاستخدام الذكاء الاصطناعي.",
+  },
+  {
+    q: "هل الاستشارة الأولى مجانية؟",
+    a: "نعم، الجلسة التعريفية الأولى مجانية تمامًا دون أي التزام.",
+  },
+  {
+    q: "ماذا أحضر للاستشارة؟",
+    a: "يكفي أن تكون عندك فكرة عن التحديات اللي تواجهها ومجال شغلك. الباقي نكمله سوا.",
+  },
+];
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    service: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
 
       {/* Page Hero */}
-      <section className="relative pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl animate-pulse" />
+          <div className="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-primary/4 to-transparent blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
           <svg className="absolute inset-0 w-full h-full opacity-[0.025]" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="contact-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
@@ -52,179 +82,216 @@ export default function ContactPage() {
             </div>
           </ScrollAnimation>
           <ScrollAnimation animation="fade-up" delay={100}>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground leading-tight mb-4">
-              خلنا نبني مستقبلك
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-5">
+              خلنا نبدأ رحلتك
               <br />
               <span className="text-foreground/40">مع الذكاء الاصطناعي</span>
             </h1>
           </ScrollAnimation>
           <ScrollAnimation animation="fade-up" delay={200}>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              تواصل معنا اليوم واحجز استشارتك الأولى. نسمع منك ونعطيك تصور واضح.
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mb-8">
+              فريقنا مستعد يسمع منك ويساعدك تحدد الفرص اللي يقدر الذكاء الاصطناعي يحدث فيها فرقًا حقيقيًا لأعمالك.
             </p>
+          </ScrollAnimation>
+          <ScrollAnimation animation="fade-up" delay={300}>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="rounded-full px-8 gap-2 shadow-lg shadow-primary/20" asChild>
+                <a
+                  href="https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  تواصل عبر واتساب
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
+                <a href="mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
+                  <Mail className="w-4 h-4" />
+                  راسلنا بالإيميل
+                </a>
+              </Button>
+            </div>
           </ScrollAnimation>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
+      {/* Contact Methods */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-muted/20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-10">
-            {/* Info Cards */}
-            <div className="lg:col-span-2 space-y-5">
-              <ScrollAnimation animation="fade-right" delay={100}>
-                <div className="bg-primary rounded-2xl p-6 text-primary-foreground relative overflow-hidden group">
-                  <div className="absolute inset-0 opacity-[0.04]">
-                    <svg viewBox="0 0 200 200" className="w-full h-full">
-                      {[...Array(10)].map((_, i) => (
-                        <g key={i}>
-                          <line x1={i * 20} y1="0" x2={i * 20} y2="200" stroke="white" strokeWidth="0.5" />
-                          <line x1="0" y1={i * 20} x2="200" y2={i * 20} stroke="white" strokeWidth="0.5" />
-                        </g>
-                      ))}
-                    </svg>
-                  </div>
-                  <div className="relative z-10">
-                    <div className="w-12 h-12 bg-primary-foreground/10 rounded-xl flex items-center justify-center mb-4">
-                      <MessageCircle className="w-6 h-6 text-primary-foreground" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {contactMethods.map((method, i) => (
+              <ScrollAnimation key={i} animation="fade-up" delay={i * 80}>
+                {method.primary ? (
+                  <div className="bg-primary rounded-2xl p-6 relative overflow-hidden group h-full flex flex-col">
+                    <div className="absolute inset-0 opacity-[0.04]">
+                      <svg viewBox="0 0 200 200" className="w-full h-full">
+                        {[...Array(10)].map((_, j) => (
+                          <g key={j}>
+                            <line x1={j * 20} y1="0" x2={j * 20} y2="200" stroke="white" strokeWidth="0.5" />
+                            <line x1="0" y1={j * 20} x2="200" y2={j * 20} stroke="white" strokeWidth="0.5" />
+                          </g>
+                        ))}
+                      </svg>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">واتساب</h3>
-                    <p className="text-primary-foreground/70 text-sm mb-4">تواصل معنا مباشرة عبر واتساب للرد السريع.</p>
-                    <a
-                      href="https://wa.me/966500000000"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary-foreground text-primary font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-primary-foreground/90 transition-colors"
-                    >
-                      ابدأ المحادثة
-                      <ArrowLeft className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-right" delay={200}>
-                <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg hover:border-foreground/20 transition-all duration-300 card-3d">
-                  <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-4">
-                    <Mail className="w-6 h-6 text-muted-foreground" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">البريد الإلكتروني</h3>
-                  <p className="text-sm text-muted-foreground mb-2">للاستفسارات الرسمية والمقترحات.</p>
-                  <a href="mailto:info@sanadtech.ai" className="text-sm font-medium text-foreground hover:underline">
-                    info@sanadtech.ai
-                  </a>
-                </div>
-              </ScrollAnimation>
-
-              <ScrollAnimation animation="fade-right" delay={300}>
-                <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg hover:border-foreground/20 transition-all duration-300 card-3d">
-                  <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-4">
-                    <MapPin className="w-6 h-6 text-muted-foreground" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">الموقع</h3>
-                  <p className="text-sm text-muted-foreground">المملكة العربية السعودية</p>
-                </div>
-              </ScrollAnimation>
-            </div>
-
-            {/* Contact Form */}
-            <ScrollAnimation animation="fade-left" delay={150}>
-              <div className="lg:col-span-3 bg-card rounded-3xl border border-border p-8 h-full">
-                {submitted ? (
-                  <div className="flex flex-col items-center justify-center h-full py-12 text-center">
-                    <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-5">
-                      <Send className="w-8 h-8 text-primary-foreground" />
+                    <div className="relative z-10 flex flex-col flex-1">
+                      <div className="w-12 h-12 bg-primary-foreground/15 rounded-xl flex items-center justify-center mb-4">
+                        <method.icon className="w-6 h-6 text-primary-foreground" />
+                      </div>
+                      <h3 className="text-lg font-bold text-primary-foreground mb-2">{method.title}</h3>
+                      <p className="text-primary-foreground/70 text-sm leading-relaxed flex-1">{method.description}</p>
+                      {method.href && method.action && (
+                        <a
+                          href={method.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-5 inline-flex items-center gap-2 bg-primary-foreground text-primary font-semibold px-5 py-2.5 rounded-full text-sm hover:bg-primary-foreground/90 transition-colors"
+                        >
+                          {method.action}
+                          <ArrowLeft className="w-4 h-4" />
+                        </a>
+                      )}
                     </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">شكرًا لتواصلك!</h3>
-                    <p className="text-muted-foreground max-w-sm">
-                      استلمنا رسالتك وسنتواصل معك قريبًا. نتطلع للعمل معك!
-                    </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <h2 className="text-2xl font-bold text-foreground mb-2">أرسل لنا رسالة</h2>
-                    <p className="text-sm text-muted-foreground mb-6">سنرد عليك خلال يوم عمل واحد.</p>
-
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">الاسم الكامل *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="أدخل اسمك"
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-colors text-sm"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-foreground mb-2">البريد الإلكتروني *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="your@email.com"
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-colors text-sm"
-                          dir="ltr"
-                        />
-                      </div>
+                  <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-lg hover:border-foreground/20 transition-all duration-300 card-3d h-full flex flex-col">
+                    <div className="w-12 h-12 bg-muted rounded-xl flex items-center justify-center mb-4">
+                      <method.icon className="w-6 h-6 text-muted-foreground" />
                     </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">اسم الشركة</label>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        placeholder="اسم شركتك أو مشروعك"
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-colors text-sm"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">الخدمة المطلوبة</label>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-colors text-sm appearance-none"
+                    <h3 className="text-lg font-bold text-foreground mb-2">{method.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line flex-1">{method.description}</p>
+                    {method.href && method.action && (
+                      <a
+                        href={method.href}
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:gap-3 transition-all"
                       >
-                        <option value="">اختر الخدمة...</option>
-                        <option value="consulting">استشارات الذكاء الاصطناعي</option>
-                        <option value="strategy">بناء استراتيجية AI</option>
-                        <option value="development">تطوير حلول مخصصة</option>
-                        <option value="automation">أتمتة العمليات</option>
-                        <option value="analytics">تحليل البيانات</option>
-                        <option value="other">أخرى</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">رسالتك *</label>
-                      <textarea
-                        name="message"
-                        required
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={5}
-                        placeholder="صف تحدياتك وأهدافك وما تتوقعه منا..."
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-colors text-sm resize-none"
-                      />
-                    </div>
-
-                    <Button type="submit" size="lg" className="w-full rounded-xl gap-2">
-                      أرسل الرسالة
-                      <Send className="w-4 h-4" />
-                    </Button>
-                  </form>
+                        {method.action}
+                        <ArrowLeft className="w-4 h-4 rotate-180" />
+                      </a>
+                    )}
+                  </div>
                 )}
-              </div>
-            </ScrollAnimation>
+              </ScrollAnimation>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* How to reach us — step guide */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-14 items-start">
+            {/* Steps */}
+            <div>
+              <ScrollAnimation animation="fade-up">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
+                  <span className="text-sm text-muted-foreground">كيف نبدأ؟</span>
+                </div>
+                <h2 className="text-3xl font-bold text-foreground mb-10">
+                  ثلاث خطوات بسيطة
+                </h2>
+              </ScrollAnimation>
+              <div className="space-y-8">
+                {[
+                  {
+                    num: "01",
+                    title: "تواصل معنا",
+                    desc: "أرسل لنا رسالة عبر واتساب أو الإيميل وعرّفنا على شركتك وما تحتاجه.",
+                  },
+                  {
+                    num: "02",
+                    title: "جلسة تعريفية مجانية",
+                    desc: "نحجز معك جلسة أونلاين مدتها ساعة نفهم فيها وضعك الحالي وأهدافك ونقيّم الفرص المتاحة.",
+                  },
+                  {
+                    num: "03",
+                    title: "خطة مخصصة لك",
+                    desc: "نقدم لك تقرير واضح بالتوصيات والخطوات العملية لدمج الذكاء الاصطناعي في أعمالك.",
+                  },
+                ].map((step, i) => (
+                  <ScrollAnimation key={i} animation="fade-up" delay={i * 100}>
+                    <div className="flex gap-5">
+                      <div className="text-4xl font-extrabold text-foreground/10 leading-none w-14 shrink-0 mt-1">
+                        {step.num}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-foreground mb-1">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+                      </div>
+                    </div>
+                  </ScrollAnimation>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick FAQ */}
+            <div>
+              <ScrollAnimation animation="fade-up" delay={100}>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card mb-6">
+                  <span className="text-sm text-muted-foreground">أسئلة شائعة</span>
+                </div>
+                <h2 className="text-3xl font-bold text-foreground mb-8">
+                  قبل ما تتواصل معنا
+                </h2>
+              </ScrollAnimation>
+              <div className="space-y-4">
+                {faqs.map((faq, i) => (
+                  <ScrollAnimation key={i} animation="fade-up" delay={i * 80}>
+                    <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-md hover:border-foreground/20 transition-all duration-300">
+                      <h4 className="font-semibold text-foreground mb-2">{faq.q}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                    </div>
+                  </ScrollAnimation>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA strip */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
+        <div className="max-w-3xl mx-auto text-center">
+          <ScrollAnimation animation="scale-up">
+            <div className="bg-primary rounded-3xl p-10 relative overflow-hidden">
+              <div className="absolute inset-0 opacity-[0.04]">
+                <svg viewBox="0 0 200 200" className="w-full h-full">
+                  {[...Array(10)].map((_, i) => (
+                    <g key={i}>
+                      <line x1={i * 20} y1="0" x2={i * 20} y2="200" stroke="white" strokeWidth="0.5" />
+                      <line x1="0" y1={i * 20} x2="200" y2={i * 20} stroke="white" strokeWidth="0.5" />
+                    </g>
+                  ))}
+                </svg>
+              </div>
+              <div className="relative z-10">
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary-foreground mb-3">
+                  لا تتردد — الاستشارة الأولى مجانية
+                </h2>
+                <p className="text-primary-foreground/70 mb-7 max-w-lg mx-auto text-sm leading-relaxed">
+                  تواصل معنا اليوم وابدأ رحلتك نحو مستقبل أعمال أذكى.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Button size="lg" variant="secondary" className="rounded-full px-7 gap-2" asChild>
+                    <a
+                      href="https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      واتساب
+                    </a>
+                  </Button>
+                  <Button size="lg" className="rounded-full px-7 gap-2 bg-transparent border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
+                    <a href="mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
+                      <Mail className="w-4 h-4" />
+                      إيميل
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
