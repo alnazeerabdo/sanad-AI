@@ -5,7 +5,7 @@ import { ArrowLeft, Sparkles, Brain, Zap, Shield } from "lucide-react";
 import ScrollAnimation from "@/components/scroll-animation";
 import { useCountUp, useProgressBar } from "@/hooks/use-count-up";
 
-const basePath = "/sanad-AI";
+const basePath = "";
 
 function AnimatedStat({
   label,
@@ -45,7 +45,7 @@ function AnimatedStat({
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Animated mesh background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-mesh-pattern opacity-[0.025]" />

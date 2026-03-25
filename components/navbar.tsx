@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
-const basePath = "/sanad-AI";
+const basePath = "";
 
 const navLinks = [
   { name: "الرئيسية", href: `${basePath}/` },

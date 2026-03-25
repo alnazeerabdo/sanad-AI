@@ -1,6 +1,6 @@
 import ScrollAnimation from "@/components/scroll-animation";
 
-const basePath = "/sanad-AI";
+const basePath = "";
 
 const footerLinks = {
   الشركة: [
