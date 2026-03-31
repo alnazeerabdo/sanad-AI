@@ -1,7 +1,42 @@
 1:"$Sreact.fragment"
-2:I[39756,["/sanad-AI/_next/static/chunks/2f236954d6a65e12.js"],"default"]
-3:I[37457,["/sanad-AI/_next/static/chunks/2f236954d6a65e12.js"],"default"]
-4:I[2355,["/sanad-AI/_next/static/chunks/a624b468970d3cc4.js"],"Analytics"]
-:HL["/sanad-AI/_next/static/chunks/e297425f70ca5594.css","style"]
-:HL["/sanad-AI/_next/static/chunks/ba2832300900171c.css","style"]
-0:{"buildId":"NToFPXrYy5jOm6zk3eovx","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/sanad-AI/_next/static/chunks/e297425f70ca5594.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/sanad-AI/_next/static/chunks/ba2832300900171c.css","precedence":"next"}],["$","script","script-0",{"src":"/sanad-AI/_next/static/chunks/a624b468970d3cc4.js","async":true}]],["$","html",null,{"lang":"ar","dir":"rtl","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/sanad-AI/favicon.png","type":"image/png"}],["$","link",null,{"rel":"apple-touch-icon","href":"/sanad-AI/favicon.png"}]]}],["$","body",null,{"className":"ibm_plex_sans_arabic_bf2b32a-module__ed7cVa__variable font-arabic antialiased","children":[["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","$L4",null,{}]]}]]}]]}],"loading":null,"isPartial":false}
+2:I[39756,["/_next/static/chunks/2f236954d6a65e12.js"],"default"]
+3:I[37457,["/_next/static/chunks/2f236954d6a65e12.js"],"default"]
+4:I[2355,["/_next/static/chunks/a624b468970d3cc4.js"],"Analytics"]
+:HL["/_next/static/chunks/e297425f70ca5594.css","style"]
+:HL["/_next/static/chunks/69f245c7befc6a08.css","style"]
+5:T4a1,
+          .whatsapp-float-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+          }
+          .whatsapp-float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+          }
+          .whatsapp-pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #25D366;
+            opacity: 0.4;
+            animation: whatsapp-pulse 2s ease-out infinite;
+          }
+          @keyframes whatsapp-pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            70% { transform: scale(1.6); opacity: 0; }
+            100% { transform: scale(1.6); opacity: 0; }
+          }
+        0:{"buildId":"Vxq950SmNUZBDL9lq0sZr","rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/e297425f70ca5594.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/chunks/69f245c7befc6a08.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/a624b468970d3cc4.js","async":true}]],["$","html",null,{"lang":"ar","dir":"rtl","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/sanad-AI/favicon.png","type":"image/png"}],["$","link",null,{"rel":"apple-touch-icon","href":"/sanad-AI/favicon.png"}]]}],["$","body",null,{"className":"ibm_plex_sans_arabic_bf2b32a-module__ed7cVa__variable font-arabic antialiased","children":[["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}],["$","$L4",null,{}],["$","a",null,{"href":"https://wa.me/966552941685","target":"_blank","rel":"noopener noreferrer","aria-label":"تواصل معنا عبر واتساب","className":"whatsapp-float-btn","children":[["$","span",null,{"className":"whatsapp-pulse-ring"}],["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","viewBox":"0 0 32 32","width":"30","height":"30","fill":"white","style":{"position":"relative","zIndex":1},"children":["$","path",null,{"d":"M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.476 2.027 7.789L0 32l8.447-2.01A15.938 15.938 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.769-1.851l-.485-.288-5.013 1.194 1.263-4.875-.317-.5A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.258-9.907c-.398-.199-2.353-1.161-2.718-1.294-.365-.133-.631-.199-.897.199-.266.398-1.031 1.294-1.264 1.56-.233.266-.465.299-.863.1-.398-.199-1.68-.619-3.2-1.975-1.183-1.055-1.981-2.358-2.214-2.756-.233-.398-.025-.613.175-.811.18-.178.398-.465.597-.698.199-.233.266-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.684-.233-.012-.498-.015-.764-.015-.266 0-.697.1-1.063.498-.365.398-1.394 1.362-1.394 3.323s1.428 3.855 1.627 4.121c.199.266 2.81 4.29 6.808 6.018.951.411 1.694.656 2.272.839.954.303 1.822.26 2.508.158.765-.114 2.353-.962 2.685-1.892.332-.93.332-1.727.233-1.892-.1-.166-.365-.266-.764-.465z"}]}]]}],["$","style",null,{"children":"$5"}]]}]]}]]}],"loading":null,"isPartial":false}

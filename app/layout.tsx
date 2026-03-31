@@ -36,41 +36,10 @@ export default function RootLayout({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="تواصل معنا عبر واتساب"
-          style={{
-            position: 'fixed',
-            bottom: '24px',
-            left: '24px',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '60px',
-            height: '60px',
-            borderRadius: '50%',
-            backgroundColor: '#25D366',
-            boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
-            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-            textDecoration: 'none',
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1.1)';
-            (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 6px 28px rgba(37, 211, 102, 0.6)';
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLAnchorElement).style.transform = 'scale(1)';
-            (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 4px 20px rgba(37, 211, 102, 0.4)';
-          }}
+          className="whatsapp-float-btn"
         >
           {/* Pulse ring */}
-          <span style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            borderRadius: '50%',
-            backgroundColor: '#25D366',
-            opacity: 0.4,
-            animation: 'whatsapp-pulse 2s ease-out infinite',
-          }} />
+          <span className="whatsapp-pulse-ring" />
           {/* WhatsApp SVG Icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +54,35 @@ export default function RootLayout({
         </a>
 
         <style>{`
+          .whatsapp-float-btn {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25D366;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+          }
+          .whatsapp-float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
+          }
+          .whatsapp-pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #25D366;
+            opacity: 0.4;
+            animation: whatsapp-pulse 2s ease-out infinite;
+          }
           @keyframes whatsapp-pulse {
             0% { transform: scale(1); opacity: 0.4; }
             70% { transform: scale(1.6); opacity: 0; }
