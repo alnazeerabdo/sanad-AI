@@ -22,7 +22,7 @@ const stats = [
   { label: "سنة التأسيس", value: "2025" },
   { label: "الدعم الفني", value: "24/7" },
   { label: "رضا العملاء", value: "100%" },
-  { label: "مجالات التخصص", value: "AI & Data" },
+  { label: "السجل التجاري", value: "7052965857" },
 ];
 
 const expertise = [
@@ -180,6 +180,7 @@ export default function AboutPage() {
                     <div className="mt-6 pt-6 border-t border-primary-foreground/10 space-y-3">
                       {[
                         "شركة مسجلة رسميًا في السعودية",
+                        "السجل التجاري: 7052965857",
                         "فريق متخصص في الذكاء الاصطناعي",
                         "من الاستشارة لحين التنفيذ الكامل",
                       ].map((item) => (

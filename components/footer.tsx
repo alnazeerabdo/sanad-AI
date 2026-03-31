@@ -16,9 +16,9 @@ const footerLinks = {
     { label: "أتمتة العمليات", href: `${basePath}/services` },
   ],
   التواصل: [
-    { label: "info@sanadtech.ai", href: "mailto:info@sanadtech.ai" },
+    { label: "sanad.ai.tech@gmail.com", href: "mailto:sanad.ai.tech@gmail.com" },
     { label: "المملكة العربية السعودية", href: "#" },
-    { label: "واتساب", href: "https://wa.me/966500000000" },
+    { label: "واتساب: 966552941685+", href: "https://wa.me/966552941685" },
   ],
 };
 
@@ -105,9 +105,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
-            © 2026 سند تكنو. جميع الحقوق محفوظة.
-          </p>
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p className="text-sm text-muted-foreground">
+              © 2026 سند تكنو. جميع الحقوق محفوظة.
+            </p>
+            <p className="text-xs text-muted-foreground/70">
+              السجل التجاري: 7052965857
+            </p>
+          </div>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">سياسة الخصوصية</a>
             <a href="#" className="hover:text-foreground transition-colors">الشروط والأحكام</a>

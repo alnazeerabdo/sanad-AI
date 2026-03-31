@@ -56,7 +56,7 @@ export default function CTA() {
                   className="rounded-full px-8 bg-transparent border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
                   asChild
                 >
-                  <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/966552941685" target="_blank" rel="noopener noreferrer">
                     تواصل عبر واتساب
                   </a>
                 </Button>

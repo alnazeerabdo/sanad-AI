@@ -12,7 +12,7 @@ const contactMethods = [
     title: "واتساب",
     description: "أسرع طريقة للتواصل معنا. نرد خلال ساعات.",
     action: "ابدأ محادثة",
-    href: "https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88.",
+    href: "https://wa.me/966552941685?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88.",
     primary: true,
   },
   {
@@ -20,7 +20,7 @@ const contactMethods = [
     title: "البريد الإلكتروني",
     description: "للاستفسارات الرسمية والمقترحات التفصيلية.",
     action: "راسلنا",
-    href: "mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88",
+    href: "mailto:sanad.ai.tech@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88",
     primary: false,
   },
   {
@@ -97,7 +97,7 @@ export default function ContactPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" className="rounded-full px-8 gap-2 shadow-lg shadow-primary/20" asChild>
                 <a
-                  href="https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
+                  href="https://wa.me/966552941685?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -106,7 +106,7 @@ export default function ContactPage() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="rounded-full px-8 gap-2" asChild>
-                <a href="mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
+                <a href="mailto:sanad.ai.tech@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
                   <Mail className="w-4 h-4" />
                   راسلنا بالإيميل
                 </a>
@@ -274,7 +274,7 @@ export default function ContactPage() {
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button size="lg" variant="secondary" className="rounded-full px-7 gap-2" asChild>
                     <a
-                      href="https://wa.me/966500000000?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
+                      href="https://wa.me/966552941685?text=%D8%A3%D9%87%D9%84%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88."
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -283,7 +283,7 @@ export default function ContactPage() {
                     </a>
                   </Button>
                   <Button size="lg" className="rounded-full px-7 gap-2 bg-transparent border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                    <a href="mailto:info@sanadtech.ai?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
+                    <a href="mailto:sanad.ai.tech@gmail.com?subject=%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B3%D9%86%D8%AF%20%D8%AA%D9%83%D9%86%D9%88">
                       <Mail className="w-4 h-4" />
                       إيميل
                     </a>
